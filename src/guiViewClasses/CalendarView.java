@@ -1,4 +1,5 @@
-package view;
+package guiViewClasses;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.faces.application.FacesMessage;

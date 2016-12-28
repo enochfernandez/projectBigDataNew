@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+	<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+
+<p:layout style="width:96%;height:800px">
+ <!-- 
+ /////////////////////////////////////////////////////////////////////////////
+ //					layout	north					 						// 
+ /////////////////////////////////////////////////////////////////////////////
+ 
+  -->
+<p:layoutUnit position="north" size="60" >
+<center >
+<br />
+<h:outputText value="Page1" />
+</center>
+</p:layoutUnit>
+ <!-- 
+ /////////////////////////////////////////////////////////////////////////////
+ //						layout west							 				// 
+ /////////////////////////////////////////////////////////////////////////////
+ 
+  -->
+    <p:layoutUnit position="west" resizable="true" size="250" minSize="100" maxSize="300">
+
+<center >
+<!-- 
+ /////////////////////////////////////////////////////////////////////////////
+ //						form 1 , page 1 , to return user to database page	// 
+ /////////////////////////////////////////////////////////////////////////////
+ 
+  -->
+<h:form>
+     <h:commandLink style="color:#e54056" action="#{navigationController.moveToPage(0)}"
+   value="Back To Databases" />
+</h:form>
+</center>
+  
+  <p:separator />
+  <!-- 
+ /////////////////////////////////////////////////////////////////////////////
+ //						form2, page1, main form for selection				// 
+ /////////////////////////////////////////////////////////////////////////////
+ 
+  -->
+  <h:form id="form">
+     <p:selectManyCheckbox id="grid3" value="#{checkboxView.selectedCars}" layout="pageDirection" columns="1">
+         <f:selectItems value="#{checkboxView.cars}" var="car" itemLabel="#{car}" itemValue="#{car}" />
+    </p:selectManyCheckbox>
+    
+    <h:panelGrid columns="3" cellpadding="5">
+        <h:outputLabel for="menu" value="Location:" />
+        <p:selectCheckboxMenu id="menu" value="#{checkboxView.selectedCities}" label="Cities"
+                              filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+            <f:selectItems value="#{checkboxView.cities}" />
+        </p:selectCheckboxMenu>
+        <p:commandLink value="Submit" update="display" />
+    </h:panelGrid>
+ 
+    <p:outputPanel id="display" style="width:250px;padding-left:5px;margin-top:10px">
+        <p:dataList value="#{checkboxView.selectedCities}" var="city" emptyMessage="No cities selected">
+            #{city}
+        </p:dataList>
+    </p:outputPanel>
+
+    
+    
+    <h:panelGrid columns="2" cellpadding="5">
+       
+        <p:outputLabel for="effect" value="Start Date:" /><br />
+        <p:calendar id="effect" value="#{calendarView.date8}" pattern="dd-MM-yyyy" effect="fold" /><br />
+ 
+        <p:outputLabel for="mask" value="End Date:" /><br />
+        <p:calendar id="mask" value="#{calendarView.date9}" pattern="dd-MM-yyyy" effect="fold"  />
+ 
+        
+    </h:panelGrid>
+    <p:separator></p:separator>
+    <center>
+    <p:commandButton style="width:100%; background-color:#53ef97;" value="Submit" icon="ui-icon-check"></p:commandButton>
+    </center>
+    </h:form>
+
+
+    </p:layoutUnit>
+     <!-- 
+ /////////////////////////////////////////////////////////////////////////////
+ //					Start of centre layout & end of main form,page1			// 
+ /////////////////////////////////////////////////////////////////////////////
+ 
+  --> 
+    <p:layoutUnit position="center">
+    
+   <p:tabView> 
+<p:tab title="Line Graph">
+
+   </p:tab>
+ 
+<p:tab title="Table">
+    
+</p:tab>
+<p:tab title="TimeLine">
+
+ </p:tab>
+<p:tab title="ZoomChart">
+
+ </p:tab>
+
+</p:tabView>        
+        
+    </p:layoutUnit>
+</p:layout>
+
+</h:head>
+<h:body>
+
+
+</h:body>
+</html>
+

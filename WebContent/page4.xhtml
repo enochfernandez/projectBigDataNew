@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+	<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+
+<p:layout style="width:96%;height:800px">
+ 
+ <!-- 
+ /////////////////////////////////////////////////////////////////////////////
+ //					layout	north					 						// 
+ /////////////////////////////////////////////////////////////////////////////
+  -->
+  
+<p:layoutUnit position="north" size="60" >
+<center >
+<br />
+<h:outputText value="Page4" />
+</center>
+</p:layoutUnit>
+ <!-- 
+ /////////////////////////////////////////////////////////////////////////////
+ //						layout west							 				// 
+ /////////////////////////////////////////////////////////////////////////////
+ 
+  -->
+    <p:layoutUnit position="west" resizable="true" size="250" minSize="100" maxSize="300">
+
+<center >
+<!-- 
+ /////////////////////////////////////////////////////////////////////////////
+ //						form 1 , page 2 , to return user to database page	// 
+ /////////////////////////////////////////////////////////////////////////////
+ 
+  -->
+<h:form>
+     <h:commandLink style="color:#e54056" action="#{navigationController.moveToPage(0)}"
+   value="Back To Databases" />
+</h:form>
+</center>
+  
+  <p:separator />
+  <!-- 
+ /////////////////////////////////////////////////////////////////////////////
+ //						form2, page 2, main form for selection				// 
+ /////////////////////////////////////////////////////////////////////////////
+ 
+  -->
+  <h:form id="form">
+  
+    
+    
+       
+   <!-- 
+       	<h:selectOneMenu value="#{setStation.favCoffee2}">
+   			<f:selectItems value="#{setStation.favCoffee2Value}" />
+   		</h:selectOneMenu>
+ -->
+      <p:panel header="Select a Location" style="margin-bottom:10px;">
+        <h:panelGrid columns="2" cellpadding="5">
+            <p:selectOneMenu id="country" value="#{dropdownView.country}" style="width:150px">
+                <p:ajax listener="#{dropdownView.onCountryChange}" update="city" />
+                <f:selectItem itemLabel="Select Country" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{dropdownView.countries}" />
+            </p:selectOneMenu>
+ <br />
+           
+            <p:selectOneMenu id="city" value="#{dropdownView.city}" style="width:150px">
+                <f:selectItem itemLabel="Select Powerplant" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{dropdownView.cities}" />
+            </p:selectOneMenu>
+        </h:panelGrid>
+ 
+        <p:separator />
+ 
+         </p:panel>
+   
+    	     
+    <p:separator></p:separator>
+    
+    <h:panelGrid columns="2" cellpadding="5">
+       
+        <p:outputLabel for="effect" value="Start Date:" /><br />
+        <p:calendar id="effect" value="#{calendarView.date8}" pattern="dd-MM-yyyy" effect="fold" /><br />
+        <p:outputLabel for="mask" value="End Date:" /><br />
+        <p:calendar id="mask" value="#{calendarView.date9}" pattern="dd-MM-yyyy" effect="fold"  />
+ 
+        
+    </h:panelGrid>
+    <p:separator></p:separator>
+    <center>
+    <p:commandButton style="width:100%; background-color:#53ef97;" value="Submit" icon="ui-icon-check"></p:commandButton>
+    </center>
+    </h:form>
+
+
+    </p:layoutUnit>
+     <!-- 
+ /////////////////////////////////////////////////////////////////////////////
+ //					Start of centre layout & end of main form ,page 2.		// 
+ /////////////////////////////////////////////////////////////////////////////
+ 
+  --> 
+    <p:layoutUnit position="center">
+    
+   <p:tabView> 
+<p:tab title="Line Graph">
+
+   </p:tab>
+ 
+<p:tab title="Table">
+    
+</p:tab>
+<p:tab title="TimeLine">
+
+ </p:tab>
+<p:tab title="ZoomChart">
+
+ </p:tab>
+
+</p:tabView>        
+        
+    </p:layoutUnit>
+</p:layout>
+
+</h:head>
+<h:body>
+
+
+</h:body>
+</html>
+

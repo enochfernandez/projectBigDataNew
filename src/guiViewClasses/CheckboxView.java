@@ -1,4 +1,5 @@
-package view;
+package guiViewClasses;
+
   
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +50,7 @@ public class CheckboxView {
             new SelectItem("Actual", "Actual"),
              });
  
-        cars.add(germanCars);
+       // cars.add(germanCars);
         cars.add(americanCars);
     }
  
