@@ -22,27 +22,23 @@ public class CheckboxView {
     @PostConstruct
     public void init() {
         cities = new ArrayList<String>();
-        cities.add("Miami");
-        cities.add("London");
-        cities.add("Paris");
-        cities.add("Istanbul");
-        cities.add("Berlin");
-        cities.add("Barcelona");
-        cities.add("Rome");
-        cities.add("Brasilia");
-        cities.add("Amsterdam");
+        cities.add("AT");
+        cities.add("BE");
+        cities.add("CZ");
+        cities.add("ES");
+        cities.add("FR");
+        cities.add("HU");
+        cities.add("NL");
+        cities.add("NO");
+        cities.add("SI");
+        cities.add("IT");
+        cities.add("DEAT");
+        cities.add("DE");
+        cities.add("DK");
+        cities.add("SE");
+        cities.add("UK");
  
         cars = new ArrayList<SelectItem>();
-        SelectItemGroup germanCars = new SelectItemGroup("Options");
-        germanCars.setSelectItems(new SelectItem[] {
-            new SelectItem("ENTSO_e-load", "ENTSO_e-load"),
-            new SelectItem("EEX_wind", "EEX_wind"),
-            new SelectItem("EEX_solar", "EEX_solar"),
-            new SelectItem("ENTSO_Germany", "ENTSO_Germany"),
-            new SelectItem("ENTSO_France", "ENTSO_France"),
-            new SelectItem("ENTSO_Netherlands", "ENTSO_Netherlands"),
-            new SelectItem("ENTSO_Belgium", "ENTSO_Belgium"),
-        });
          
         SelectItemGroup americanCars = new SelectItemGroup("Filters");
         americanCars.setSelectItems(new SelectItem[]{
@@ -50,7 +46,6 @@ public class CheckboxView {
             new SelectItem("Actual", "Actual"),
              });
  
-       // cars.add(germanCars);
         cars.add(americanCars);
     }
  
